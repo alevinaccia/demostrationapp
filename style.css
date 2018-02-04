@@ -1,0 +1,20 @@
+.idk{
+    position: relative;
+    left: 40%;
+    
+}
+
+body{
+    background-color: rgb(53, 186, 226);
+}
+.hidden {
+    display: none;
+}
+
+
+.images {
+    width: 25%;
+    height: 25%;
+    position: relative;
+    left: 25%
+}
