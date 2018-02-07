@@ -6,8 +6,8 @@
 
 <body>
     <section id="fristSection">
-        <button onclick="myFunction(audioDog,'dog.jpeg')" class="idk">Cane</button>
-        <button onclick="myFunction(audioCat,'cat.jpg')" class="idk">Gatto</button>
+        <button onclick="myFunction('dog')" class="idk">Cane</button>
+        <button onclick="myFunction(cat)" class="idk">Gatto</button>
     </section>
     <section>
 
@@ -22,6 +22,12 @@
 
         </section>
         <script>
+
+            var glossary = {
+                dog: { trad: "cane", audio: new Audio("./assets/sounds/dog.wav"), img: "./assets/images/dog.jpeg" },
+                cat: { trad: "gatto", audio: new Audio("./assets/sounds/cat.wav"), img: "./assets/images/cat.jpg" },
+            }
+            
             class BoxManager {
                 constructor() {
                     this.boxes = [];
@@ -62,25 +68,13 @@
 
             bManager.register(section1);
             bManager.register(section2);
-            //Dichiaro i vari file audio
-
-            let audioDog = new Audio('./assets/sounds/dog.wav');
-            let audioCat = new Audio('./assets/sounds/cat.wav');
-
-            //Dichiaro le variee immagin
-
-            function myFunction(audio, image) {
-                let p = "<img src='./assets/images/" + image + "' id='img' >"
-
-                currentAudio = audio;
-                bManager.activate(secondSection);
 
 
-                document.getElementById("secondSection").insertAdjacentHTML('beforeend', p);
-
+            function myFunction(word) { 
+                currentAudio = glossary.word.audio;
+                section2.insertAdjacentElement("<img src='" + glossary.word.img + "'>", "beforeend")
             }
-
-
+            console.log(myFunction(dog))
         </script>
 </body>
 
