@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <meta name="viewport" content=" width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <h1>VOCABOLARIO MARITTIMO INGLESE</h1>
+</head>
+
+<body>
+    <section id="fristSection">
+        <p onclick="myFunction(audioDog,'dog.jpeg')" class="idk">Cane -- Dog /d&#594;g/</p>
+        <p onclick="myFunction(audioCat,'cat.jpg')" class="idk">Gatto -- Cat /k&aelig;t/</p>
+    </section>
+    <section>
+
+        <section id="secondSection" class="hidden">
+
+            <body>
+                <input type="button" class="buttons" onclick="currentAudio.play()" value="Suono,Pronuncia">
+                <input type="button" class="buttons" onclick="bManager.activate(fristSection)" value="Torna indietro">
+
+            </body>
+
+
+        </section>
+        <script>
+            class BoxManager {
+                constructor() {
+                    this.boxes = [];
+                }
+
+                register(box) {
+                    this.boxes.push(box);
+                }
+
+                activate(box) {
+                    if (document.getElementById("img") == null) {
+                        this.boxes.forEach(b => this._hide(b));
+                        this._show(box);
+                    } else {
+                        console.log("removing")
+                        document.getElementById('img').remove()
+                        this.boxes.forEach(b => this._hide(b));
+                        this._show(box);
+                    }
+                }
+
+                _show(box) {
+                    box.classList.remove("hidden");
+                }
+                _hide(box) {
+                    box.classList.add("hidden");
+                }
+                _request(request) {
+                }
+            }
+
+            let currentAudio;
+
+            let bManager = new BoxManager;
+
+            let section1 = document.getElementById('fristSection');
+            let section2 = document.getElementById('secondSection');
+
+            bManager.register(section1);
+            bManager.register(section2);
+            //Dichiaro i vari file audio
+
+            let audioDog = new Audio('./assets/sounds/dog.wav');
+            let audioCat = new Audio('./assets/sounds/cat.wav');
+
+            //Dichiaro le variee immagin
+
+            function myFunction(audio, image) {
+                let p = "<img src='./assets/images/" + image + "' id='img'>"
+
+                currentAudio = audio;
+                bManager.activate(secondSection);
+
+
+                document.getElementById("secondSection").insertAdjacentHTML('beforeend', p);
+
+            }
+
+
+        </script>
+</body>
+
+
+</html>

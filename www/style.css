@@ -1,0 +1,31 @@
+.hidden{
+    display: none;
+
+}
+h1{
+
+    color:red;    
+    
+
+    background-image:url("./assets/images/ancore2.jpg");
+    background-position: top;
+
+    border-style:solid;
+    border-color: black;
+
+    border-width:2px;
+    text-align: center
+
+}body {
+
+        background-color: #00BFFF
+
+}input{
+
+        width:100%;
+        text-align: center;
+
+}img{
+    width:auto;
+    height:auto;
+}
